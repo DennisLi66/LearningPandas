@@ -9,22 +9,28 @@ def createDictionaryFromFile(filename):
     for line in file.readlines():
         if line.strip() == "":
             continue;
+        line = line.strip();
+        slots[params[counter]] = line;
+        counter += 1;
         if counter == len(params):
             counter = 0;
             dictQ.insert(len(dictQ),slots);
             slots = {};
-        line = line.strip();
-        slots[params[counter]] = line;
-        counter += 1;
     file.close();
-    #print(dictQ);
+    # print(dictQ);
     return (filename.split('.')[0],dictQ);
 
 
 def saveToFile(t): #param is above tuple
-    print(t);
-    filename = t[0] + "1.txt";
+    # print(t);
+    filename = t[0] + ".txt";
     file = open(filename,'w');
+    file.write(",".join(t[1][0].keys()) + "\n");
+    # print(t);
+    for d in t[1]:
+        for v in d.values():
+            file.write(v + "\n")
+    file.close();
     return;
 
 
