@@ -19,7 +19,8 @@ def dlFrame():
 def ldFrame():
     lod = [{'Name':'2','Suit':'Diamonds'},{'Name':'3','Suit':'Hearts'},{'Name':'4','Suit':'Spades'}]
     f = pandas.DataFrame(lod);
-    d = pandas.DataFrame([{'Name':'Ace','Suit':'Hearts'}]);
+    print(f);
+
 
     
 
