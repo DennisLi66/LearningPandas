@@ -23,7 +23,7 @@ def createDictionaryFromFile(filename):
 
 def saveToFile(t): #param is above tuple
     # print(t);
-    filename = t[0] + ".txt";
+    filename = "databases/" + t[0] + ".txt";
     file = open(filename,'w');
     file.write(",".join(t[1][0].keys()) + "\n");
     # print(t);
