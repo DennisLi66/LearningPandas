@@ -1,0 +1,8 @@
+dbNumber, versionNumber, soldFor, dateSold
+
+1
+1
+8.99
+10/10/2019
+
+#write random generators
