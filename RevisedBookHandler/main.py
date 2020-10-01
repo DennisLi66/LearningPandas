@@ -20,13 +20,27 @@ class dbHandler:
         gC = imex.createDictionaryFromFile('contributors.txt')
         gC1 = {gC[0]:pd.DataFrame(gC[1])};
         self.info['contributors'] = gC1;
-    def getSpecificDataFrame(self,name):
+    def getSpecificDataFrame(self,name): #get database
         return self.info[name][name];
-    def getDBfromTitle(self,title):
-        db = 0;
+    def getDBfromTitle(self,title): #return database number when given title
         frame = self.getSpecificDataFrame('generalInfo');
-        print(frame);
-        return db;
+        length = len(frame);
+        dbNumbers = [];
+        # print(frame);
+        for x in range(0,length):
+            if frame.iloc[x]['title'] == title:
+                dbNumbers.insert(frame.iloc[x]['dbNumber']);
+        return dbNumbers;
+    def getDBfromContributor(self,cont):
+        frame = self.getSpecificDataFrame('contributors');
+        length = len(frame);
+        conts = [];
+        # print(frame);
+        for x in range(0,length):
+            if frame.iloc[x]['personName'] == cont:
+                conts.insert(conts.length,frame.iloc[x]['dbNumber'])
+        return conts;
+        
 
 def run():
     print("Loading...")
